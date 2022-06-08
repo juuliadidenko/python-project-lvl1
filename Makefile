@@ -15,4 +15,4 @@ publish:
 
 
 package-install:
-	python3 -m pip install --user dist/*.whl
+	pip install --user --force-reinstall dist/*.whl
