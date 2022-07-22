@@ -19,6 +19,8 @@ def generate_round_problem():
     step = random.randint(1, 10)
     progression = generate_progression(gen_number, step, progression_len)
     answer = random.choice(progression)
-    question = f"{' '.join(generate_progression).replace(answer, '..')}"
+    question = ' '.join(
+        '..' if number == answer else str(number) for number in progression
+    )
     return question, answer
 
