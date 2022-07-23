@@ -4,23 +4,13 @@ GOAL = 'What number is missing in the progression?'
 progression_len = 10
 
 
-def generate_progression(gen_number, step, progression_len):
-    progression = [gen_number]
-    count = 0
-    while count < progression_len:
-        gen_number += step
-        progression.append(gen_number)
-        count += 1
-    return progression
-
-
 def generate_round_problem():
-    gen_number = random.randint(1, 100)
+    gen_number = random.randint(0, 30)
     step = random.randint(1, 10)
-    progression = generate_progression(gen_number, step, progression_len)
-    answer = random.choice(progression)
+    end = random.randint(40, 100)
+    sequence = list(range(gen_number, end, step))
+    answer = random.choice(sequence)
     question = ' '.join(
-        '..' if number == answer else str(number) for number in progression
+        '..' if number == answer else str(number) for number in sequence
     )
     return question, answer
-
